@@ -8,8 +8,10 @@ import java.util.Set;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.ApiKey;
 import springfox.documentation.service.AuthorizationScope;
 import springfox.documentation.service.SecurityReference;
@@ -22,10 +24,19 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 	String host = "commerce.hj.auth:9080";
+	
+	public ApiInfo apiInfo() {
+		return new ApiInfoBuilder()
+			.title("Commerce-hj-APIG ver2-2")
+			.description("Version2-2")
+			.build();
+	    }
+	
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).consumes(getConsumeContentTypes())
 			      .host(host)
+			      .apiInfo(this.apiInfo())
 				  .securityContexts(Arrays.asList(securityContext()))
 			      .securitySchemes(Arrays.asList(apiKey()))
 			      .produces(getProduceContentTypes()).select().apis(RequestHandlerSelectors.any())
