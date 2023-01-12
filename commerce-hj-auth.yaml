@@ -24,7 +24,7 @@ spec:
         version: v1
     spec:
       containers:
-      - image: 192.168.100.12/commerce-hj/commerce-hj-auth:latest
+      - image: 192.168.100.12/commerce-hj/commerce-hj-auth:v2
         imagePullPolicy: Always
         name: commerce-hj-auth
       dnsPolicy: ClusterFirst
