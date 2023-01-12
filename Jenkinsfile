@@ -21,7 +21,7 @@ pipeline {
       steps{
         script {
           echo "Build image START $BUILD_NUMBER"
-          sh "docker build -t 192.168.100.12/commerce-hj/commerce-hj-auth-pipe:v$BUILD_NUMBER ."
+          sh "docker build --no-cache -t 192.168.100.12/commerce-hj/commerce-hj-auth-pipe:v$BUILD_NUMBER ."
           echo "Build image END"
         }
       }
@@ -35,7 +35,7 @@ pipeline {
         script {
           echo "Push Image START"
           sh "docker login 192.168.100.12 -u admin -p Unipoint11"
-          sh "docker push 192.168.100.12/shpark/sellers:rabbit-$BUILD_NUMBER"
+          sh "docker push 192.168.100.12/commerce-hj/commerce-hj-auth-pipe:v$BUILD_NUMBER"
           }
         echo "Push Image END"
       }
