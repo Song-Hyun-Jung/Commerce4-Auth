@@ -46,7 +46,8 @@ pipeline {
       steps {
         script {
           echo "Deploy App START"
-          sh "/usr/local/bin/kubectl --kubeconfig=/home/jenkins/acloud-client.conf create -f commerce-hj-auth.yaml"
+          sh "/usr/local/bin/kubectl --kubeconfig=/home/jenkins/acloud-client.conf create -f commerce-hj-auth-ver2.yaml"
+          sh "/usr/local/bin/kubectl --kubeconfig=/home/jenkins/acloud-client.conf set image -n commerce-hj deployment/commerce-hj-auth-ver2 commerce-hj-auth-ver2=192.168.100.12/commerce-hj/commerce-hj-auth:v$BUILD_NUMBER"
           echo "Deploy App END"
         }
       }
