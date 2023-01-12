@@ -14,14 +14,14 @@ spec:
   selector:
     matchLabels:
       app: commerce-hj-auth
-      version: v1
+      version: v2
   template:
     metadata:
       annotations:
         sidecar.istio.io/inject: "true"
       labels:
         app: commerce-hj-auth
-        version: v1
+        version: v2
     spec:
       containers:
       - image: 192.168.100.12/commerce-hj/commerce-hj-auth:v2
