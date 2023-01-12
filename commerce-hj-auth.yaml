@@ -5,7 +5,7 @@ metadata:
     acornsoft.io/workload-group-no: "5"
   labels:
     app: commerce-hj-auth
-  name: commerce-hj-auth
+  name: commerce-hj-auth-ver2
   namespace: commerce-hj
 spec:
   progressDeadlineSeconds: 600
