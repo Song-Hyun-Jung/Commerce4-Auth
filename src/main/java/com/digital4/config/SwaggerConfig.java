@@ -27,10 +27,10 @@ public class SwaggerConfig {
 	
 	public ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-			.title("Commerce-hj-APIG ver2-2")
+			.title("Commerce-hj-Auth ver2-2")
 			.description("Version2-2")
 			.build();
-	    }
+	    } 
 	
 	@Bean
 	public Docket api() {
